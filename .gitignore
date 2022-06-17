@@ -1,2 +1,4 @@
 node_modules
 notes
+.DS_Store
+package-lock.json

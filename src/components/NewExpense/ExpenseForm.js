@@ -6,8 +6,6 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
-
-  // single use state
   // const [userInput, setUserInput] = useState({
   //   enteredTitle: '',
   //   enteredAmount: '',
@@ -33,7 +31,6 @@ const ExpenseForm = (props) => {
     // });
   };
 
-  // default event object that something browser gives us
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
     // setUserInput({
@@ -43,12 +40,11 @@ const ExpenseForm = (props) => {
   };
 
   const submitHandler = (event) => {
-    //default js behaviour not ot reload the page
     event.preventDefault();
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
@@ -76,7 +72,6 @@ const ExpenseForm = (props) => {
             min='0.01'
             step='0.01'
             value={enteredAmount}
-            //whenever user types, this function triggers
             onChange={amountChangeHandler}
           />
         </div>
@@ -92,6 +87,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className='new-expense__actions'>
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
