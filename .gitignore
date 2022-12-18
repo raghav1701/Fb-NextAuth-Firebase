@@ -1,7 +1,7 @@
-node_modules
+node_modules/
 notes
 .DS_Store
 package-lock.json
-.next
+.next/
 .env.local
 firebase.js 
